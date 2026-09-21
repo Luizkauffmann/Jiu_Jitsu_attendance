@@ -1,0 +1,346 @@
+:root {
+  --bg: #0d0d0d;
+  --panel: #171717;
+  --panel-2: #202020;
+  --border: #303030;
+  --text: #f7f2e8;
+  --muted: #989898;
+  --red: #c43d32;
+  --red-dark: #972d26;
+  --green: #69d29d;
+  --yellow: #e1b84f;
+  --shadow: 0 18px 50px rgba(0,0,0,.22);
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top right, rgba(196,61,50,.12), transparent 28rem),
+    var(--bg);
+  color: var(--text);
+  font-family: "DM Sans", sans-serif;
+}
+
+button, input { font: inherit; }
+
+button { cursor: pointer; }
+
+.shell {
+  width: min(760px, calc(100% - 28px));
+  margin: 0 auto;
+  padding: 28px 0 60px;
+}
+
+.hidden { display: none !important; }
+
+.card,
+.stat-card {
+  background: rgba(23,23,23,.94);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.login-card {
+  width: min(440px, 100%);
+  margin: 11vh auto 0;
+  padding: 34px;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border: 2px solid var(--red);
+  border-radius: 50%;
+  color: var(--red);
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 28px;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+h1, h2 {
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 1.3px;
+  margin: 0;
+  font-weight: 400;
+}
+
+h1 { font-size: clamp(34px, 7vw, 48px); }
+h2 { font-size: 30px; }
+
+.eyebrow {
+  margin: 0 0 5px;
+  color: var(--red);
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.muted {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.stack {
+  display: grid;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+label {
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+
+input {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #101010;
+  color: var(--text);
+  padding: 14px 15px;
+  outline: none;
+}
+
+input:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(196,61,50,.14);
+}
+
+button {
+  border: 0;
+  border-radius: 10px;
+  padding: 12px 15px;
+  font-weight: 700;
+}
+
+.primary {
+  background: var(--red);
+  color: white;
+  margin-top: 4px;
+}
+
+.primary:hover { background: var(--red-dark); }
+
+.ghost {
+  color: var(--text);
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+}
+
+.ghost:hover { background: #292929; }
+
+.danger {
+  background: var(--red);
+  color: #fff;
+}
+
+.message {
+  min-height: 22px;
+  color: #ef8d84;
+  font-size: 13px;
+  margin-bottom: 0;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.stat-card {
+  padding: 16px;
+  box-shadow: none;
+}
+
+.stat-label {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: 7px;
+}
+
+.stat-card strong {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 29px;
+  letter-spacing: 1px;
+  font-weight: 400;
+}
+
+.status-dot {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 13px !important;
+  color: var(--green);
+}
+
+.status-dot::before {
+  content: "●";
+  margin-right: 7px;
+}
+
+.status-dot.offline { color: #ef8d84; }
+.status-dot.loading { color: var(--yellow); }
+
+.attendance-card {
+  padding: 20px;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+.search-wrap { margin-bottom: 14px; }
+
+.student-list {
+  display: grid;
+  gap: 8px;
+}
+
+.student-row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 42px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 13px;
+  text-align: left;
+  color: var(--text);
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  transition: transform .12s ease, border-color .12s ease, background .12s ease;
+}
+
+.student-row:hover {
+  transform: translateY(-1px);
+  border-color: #4b4b4b;
+}
+
+.student-row.present {
+  border-color: rgba(105,210,157,.45);
+  background: rgba(105,210,157,.08);
+}
+
+.check-circle {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid #555;
+  color: #777;
+  font-weight: 700;
+}
+
+.present .check-circle {
+  color: #0c1812;
+  border-color: var(--green);
+  background: var(--green);
+}
+
+.student-name {
+  font-weight: 700;
+}
+
+.student-meta {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.row-action {
+  color: var(--muted);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.present .row-action { color: var(--green); }
+
+.toast {
+  border: 1px solid rgba(105,210,157,.35);
+  background: rgba(105,210,157,.08);
+  color: var(--green);
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+
+.toast.error {
+  border-color: rgba(239,141,132,.35);
+  background: rgba(239,141,132,.08);
+  color: #ef8d84;
+}
+
+.empty {
+  color: var(--muted);
+  padding: 24px 4px;
+  text-align: center;
+}
+
+.footer-note {
+  color: #666;
+  font-size: 11px;
+  text-align: center;
+  line-height: 1.5;
+  margin-top: 18px;
+}
+
+dialog {
+  width: min(420px, calc(100% - 28px));
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--panel);
+  color: var(--text);
+  box-shadow: var(--shadow);
+}
+
+dialog::backdrop {
+  background: rgba(0,0,0,.72);
+}
+
+.dialog-card { padding: 24px; }
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 9px;
+  margin-top: 22px;
+}
+
+@media (max-width: 560px) {
+  .shell { width: min(100% - 18px, 760px); padding-top: 18px; }
+  .login-card { padding: 24px; margin-top: 8vh; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .connection-card { grid-column: 1 / -1; }
+  .attendance-card { padding: 14px; }
+  .student-row { grid-template-columns: 38px 1fr; }
+  .row-action { display: none; }
+}
